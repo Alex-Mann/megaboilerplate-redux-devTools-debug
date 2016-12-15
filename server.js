@@ -141,6 +141,12 @@ if (app.get('env') === 'production') {
     console.error(err.stack);
     res.sendStatus(err.status || 500);
   });
+} else {
+  var remotedev = require('remotedev-server');
+  remotedev({
+    hostname: 'localhost',
+    port: 8000
+  });
 }
 
 app.listen(app.get('port'), function() {
